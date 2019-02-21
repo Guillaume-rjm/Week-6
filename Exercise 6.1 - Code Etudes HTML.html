@@ -1,0 +1,266 @@
+<!doctype html>
+
+<html name="html">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+
+<head name="head">
+  <title> Exercise 6.1 </title>
+
+  <style>
+
+html
+{
+    background-color: white;
+}
+
+img {
+  width: 300px;
+  height: 300px;
+}
+
+body
+{
+    background-color:                   white;
+    font-family:                   sans-serif;
+    font-size:                           15px;
+    position:                        absolute;
+    height:                             768px;
+    width:                             1024px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table th{
+  text-align: center;
+  border: 1px solid grey;
+  background-color: black;
+  color: white;
+  padding: 8px 50px 5px 15px;
+
+}
+
+table td {
+  text-align: center;
+  border: 1px solid grey;
+  padding: 4px 8px;
+
+}
+
+table tr: nth-child(odd) td {
+  background-color: #e7edf0;
+}
+
+</style>
+
+</head>
+<body name="body">
+  <h1 name="h1"></h1>
+
+  <table>
+    <tr>
+      <th> First Name </th>
+      <th> Last Name </th>
+      <th> Location </th>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <!-- <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr> -->
+  </table>
+
+      <div id="divtag" name="div">
+
+        <p id="field"></p>
+      </div>
+
+<script language="javascript">
+
+let students_list = [
+  {
+    First_Name: "Alan",
+    Last_Name: "Blaisdell",
+    Location: "Hillsboro",
+  },
+  {
+    First_Name: "Sabrina" ,
+    Last_Name: "Von Bogenberg",
+    Location: "Orange County",
+  },
+  {
+    First_Name: "Daniel",
+    Last_Name: "Ging",
+    Location: "Yunnan",
+  },
+  {
+    First_Name: "Susan",
+    Last_Name: "Henesy",
+    Location: "Boston",
+  },
+  {
+    First_Name: "Cathrine",
+    Last_Name: "Hertenstein",
+    Location: "Lansing",
+  },
+  {
+    First_Name: "John",
+    Last_Name: "Hopkins",
+    Location: "Blue Springs",
+  },
+  {
+    First_Name: "Guillaume",
+    Last_Name: "Maronne",
+    Location: "Prague",
+  },
+  {
+    First_Name: "Martin",
+    Last_Name: "Nuwamanya",
+    Location: "Japan",
+  },
+  {
+    First_Name: "Leonardo",
+    Last_Name: "Mazzella",
+    Location: "Padova",
+  },
+  {
+    First_Name: "Harrison",
+    Last_Name: "Norsten",
+    Location: "Minneapolis",
+  },
+  {
+    First_Name: "Daniel",
+    Last_Name: "Rodgers",
+    Location: "Colorado",
+  },
+  {
+    First_Name: "Brent",
+    Last_Name: "Alan Schmidt",
+    Location: "Cleveland",
+  },
+  {
+    First_Name: "Lauren",
+    Last_Name: "Song",
+    Location: "New Jersey",
+  },
+  {
+    First_Name: "John",
+    Last_Name: "Tique",
+    Location: "Rifle",
+  }
+]
+
+function fillstudents() {
+
+  for (let row = 0; row < students_list.length; row++) {
+      table_row = document.getElementsByTagName("tr")[row];
+      key_length = Object.keys(students_list[row]).length;
+
+        for (let column = 0; column < key_length; column++) {
+          key_value = Object.keys(students_list[row])[column];
+          document.getElementsByTagName("td")[column + (row * key_length)].innerHTML = students_list[row][key_value];
+    }
+  }
+}
+
+fillstudents();
+
+
+    // let rows = document.getElementsByClassName('rows');
+    // for(i = 0; i < rows.length; i++){
+        // let cols = rows[i].getElementsByTagName('td');
+        //
+        // document.getElementsByTagName('td')[i].innerHTML = students_list[i].First_Name;
+        // document.getElementsByTagName('td')[i].innerHTML = students_list[i].Last_Name;
+        // document.getElementsByTagName('td')[i].innerHTML = students_list[i].Location;
+        // cols[i].innerHTML = students_list[i].Location;
+      // }
+
+//JQuery
+    // $(document).ready(function () {
+    //
+    //         $('#table').DataTable({
+    //             data: students_list,
+    //             columns: [
+    //                 { data: 'First_Name' },
+    //                 { data: 'Last_Name' },
+    //                 { data: 'Location' },
+    //             ]
+    //         });
+    //     });
+
+</script>
+
+</body>
+</html>
