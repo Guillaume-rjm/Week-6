@@ -1,0 +1,206 @@
+<!doctype html>
+
+<html name="html">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+
+
+<head name="head">
+  <title> Assignment 6 - Part 2 </title>
+
+  <style>
+
+  body
+  {
+      background-color:                   white;
+      font-family:                   sans-serif;
+      font-size:                           15px;
+      position:                        absolute;
+      height:                             768px;
+      width:                             1024px;
+  }
+
+  button {
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 20px;
+  }
+
+  .displaybutton {
+  display: block;
+  width: 600%;
+  border: 1px solid #F1F2FA;
+  background-color: #F1F2FA;
+  color: #387E33;
+  padding: 5px 5px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 30px;
+  cursor: pointer;
+  text-align: right;
+}
+
+  table {
+    border-collapse: collapse;
+  }
+
+  table th{
+    text-align: center;
+    border: 0px solid white;
+    background-color: white;
+    color: white;
+    padding: 10px 10px 10px 10px;
+
+  }
+
+  table td {
+    text-align: center;
+    border: 0px solid white;
+    padding: 15px 15px;
+
+  }
+
+
+  </style>
+
+</head>
+<body name="body">
+  <h1 name="h1">Assignment 6 - Part 2 - Guillaume</h1>
+      <div id="divtag" name="div">
+        <p id="">
+        </p>
+      </div>
+      <br><br>
+      <table>
+        <tr>
+          <th><button class=displaybutton id="field">0</button></th>
+        </tr>
+      </table>
+      <br>
+      <table>
+        <tr>
+          <th><button class=resetbutton id="0">AC</button></th>
+          <th><button class=emptybutton id=""> </button></th>
+          <th><button class=emptybutton id=""> </button></th>
+          <th><button class=opbutton id="/">/</button></th>
+        </tr>
+        <tr>
+          <td><button class=numbutton id="7">7</button></td>
+          <td><button class=numbutton id="8">8</button></td>
+          <td><button class=numbutton id="9">9</button></td>
+          <td><button class=opbutton id="x">x</button></td>
+        </tr>
+        <tr>
+          <td><button class=numbutton id="4">4</button></td>
+          <td><button class=numbutton id="5">5</button></td>
+          <td><button class=numbutton id="6">6</button></td>
+          <td><button class=opbutton id="-">-</button></td>
+        </tr>
+        <tr>
+          <td><button class=numbutton id="1">1</button></td>
+          <td><button class=numbutton id="2">2</button></td>
+          <td><button class=numbutton id="3">3</button></td>
+          <td><button class=opbutton id="+">+</button></td>
+        </tr>
+        <tr>
+          <td><button class=numbutton id="0">0</button></td>
+          <td><button class=emptybutton id=""> </button></td>
+          <td><button class=numbutton id=".">.</button></td>
+          <td><button class=totalbutton id="=">=</button></td>
+        </tr>
+
+      </table>
+
+<script language="javascript">
+
+let i = "";
+let j = "";
+let operator = "";
+let total = "";
+
+  $(document).ready(function() {
+      $(".numbutton").on('click', function(calc) {
+          if(operator ===""){
+            i+=this.id;
+            document.getElementById("field").innerHTML = i;
+          } else {
+            j+=this.id;
+            document.getElementById("field").innerHTML = "";
+            document.getElementById("field").innerHTML = j;
+          }
+      });
+  });
+
+  $(document).ready(function() {
+      $(".opbutton").on('click', function() {
+        operator+=this.id;
+          document.getElementById("field").innerHTML = "";
+          document.getElementById("field").innerHTML = operator;
+          // Opclicked(operator)
+      });
+  });
+
+  $(document).ready(function() {
+      $(".totalbutton").on('click', function() {
+        calctotal()
+        document.getElementById("field").innerHTML = total;
+        i = "";
+        j = "";
+        operator = "";
+        // document.getElementById("field").innerHTML = "";
+      });
+  });
+
+  $(document).ready(function() {
+      $(".resetbutton").on('click', function() {
+        document.getElementById("field").innerHTML = "0";
+        i = "";
+        j = "";
+        operator = "";
+        // document.getElementById("field").innerHTML = "";
+      });
+  });
+
+
+// function Opclicked(Op){
+//   if (operator ===""){
+//   operator = Op;
+//   } else {
+//     calctotal();
+//     operator = Op;
+//   }
+// }
+
+function calctotal(){
+  switch(operator){
+    case "+":
+      total = Number(i) + Number(j);
+      // displayResult(total);
+      break;
+    case "-":
+      total = Number(i) - Number(j);
+      // displayResult(total);
+      break;
+    case "x":
+      total = Number(i) * Number(j);
+      // displayResult(total);
+      break;
+    case "/":
+      total = Number(i) / Number(j);
+      // displayResult(total);
+      break;
+    case "=":
+    total = eval(Number(i) + operator + Number(j));
+    // displayResult(total);
+  }
+  // i = "";
+  // j = "";
+}
+
+// function displayResult(Result) {
+//     $(".field").text(Result);
+// }
+
+</script>
+
+
+</body>
+</html>
